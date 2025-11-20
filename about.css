@@ -1,0 +1,98 @@
+/* --- about.css --- */
+
+/* =========================== */
+/* === FONTS & VARIABLES ===== */
+/* =========================== */
+:root {
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'EB Garamond', serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+    --transition-speed: 0.3s;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  }
+  
+  /* =========================== */
+  /* === HEADER STYLES ========= */
+  /* =========================== */
+  .site-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    background: -webkit-linear-gradient(0deg, #1f2937, #1f2937);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  /* Hover Gradient Effect (Light Mode) */
+  .site-title::before {
+    content: "~ / adrish";
+    position: absolute;
+    left: 0; top: 0; width: 0; height: 100%;
+    background: linear-gradient(to right, #ff7300, #232020, #3f1c1c, #6f2727);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: width 0.5s ease;
+    overflow: hidden;
+  }
+  
+  /* Hover Gradient Effect (Dark Mode) */
+  body.dark-mode .site-title {
+    background: -webkit-linear-gradient(0deg, #f9fafb, #f9fafb);
+    -webkit-background-clip: text;
+  }
+  body.dark-mode .site-title::before {
+    background: linear-gradient(to right, #fb7185, #a855f7, #2dd4bf, #60a5fa);
+  }
+  
+  .site-title:hover::before {
+    width: 100%;
+  }
+  
+  /* =========================== */
+  /* === TYPOGRAPHY UTILS ====== */
+  /* =========================== */
+  .font-serif-header {
+    font-family: var(--font-serif);
+  }
+  .font-mono-detail {
+    font-family: var(--font-mono);
+  }
+  
+  /* =========================== */
+  /* === DARK MODE OVERRIDES === */
+  /* =========================== */
+  body.dark-mode {
+    background-color: #111827; /* tailwind gray-900 */
+    color: #d1d5db; /* tailwind gray-300 */
+  }
+  
+  /* Link colors in text */
+  .text-link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: #fb7185; /* rose-400 */
+    transition: color 0.2s;
+  }
+  .text-link:hover {
+    color: #e11d48; /* rose-600 */
+  }
+  body.dark-mode .text-link:hover {
+    color: #fda4af; /* rose-300 */
+  }
+  
+  /* Nav Links */
+  .nav-item {
+    transition: color 0.2s;
+  }
+  .nav-item:hover {
+    color: #e11d48;
+  }
+  body.dark-mode .nav-item:hover {
+    color: #fda4af;
+  }
